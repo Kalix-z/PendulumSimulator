@@ -32,11 +32,6 @@ public class Ball : MonoBehaviour
     // time since pendulum is enabled
     private double time = 0;
 
-    void OnEnable()
-    {
-        currentAngle = startingAngle;
-        currentVelocity = startingVelocity;
-    }
 
     // returns angular acceleration of pendulum (degrees/s^2)
     // angle - the previous angle, or in the case of the simple pendulum, the time
@@ -56,7 +51,7 @@ public class Ball : MonoBehaviour
         if (!useRealPendulum)
             return DifferentialEquation(time, 0);
         currentAngle = startingAngle;
-        currentVelocity = 0;
+        currentVelocity = startingVelocity;
         currentAccel = 0;
         for (double i = 0; i <= time; i += deltaT)
         {
