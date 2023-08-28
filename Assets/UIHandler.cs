@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour
@@ -38,5 +39,11 @@ public class UIHandler : MonoBehaviour
         pendulum.GetComponent<Ball>().startingVelocity = startingVelocitySlider.value;
         pendulum.SetActive(true);
         GameObject.Find("PreSimulation").SetActive(false);
+    }
+
+    public void OnBackPress()
+    {
+        print("t");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
